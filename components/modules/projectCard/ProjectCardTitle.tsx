@@ -5,8 +5,8 @@ import { TypeProjectCardTitleProps } from "@/types/Project"
 export const ProjectCardTitle: React.FC<TypeProjectCardTitleProps> = ({ title }) => {
   return (
     <h3
-      style={{ lineHeight: "1.5em", maxHeight: "3em" }}
-      className="text-xl font-dana overflow-hidden"
+      className="text-lg font-dana font-bold line-clamp-2 min-h-[3.2rem] leading-snug flex items-center"
+      title={title}
     >
       {title}
     </h3>

@@ -16,11 +16,15 @@ export const lifeGlimpseAndSoftSkillsAnimate = () => {
   })
 }
 
-const animateLifeGlimpseAndSoftSkillsShowUpForDesktop = (timeLine: TypeTimeLine) => {
+const animateLifeGlimpseAndSoftSkillsShowUpForDesktop = (
+  timeLine: TypeTimeLine,
+) => {
   animateLifeGlimpseAndSoftSkillsTitle(timeLine)
 }
 
-const animateLifeGlimpseAndSoftSkillsShowUpForMobile = (timeLine: TypeTimeLine) => {
+const animateLifeGlimpseAndSoftSkillsShowUpForMobile = (
+  timeLine: TypeTimeLine,
+) => {
   animateLifeGlimpseAndSoftSkillsTitle(timeLine)
   timeLine.fromTo(
     "#horizontal .content",
@@ -29,22 +33,26 @@ const animateLifeGlimpseAndSoftSkillsShowUpForMobile = (timeLine: TypeTimeLine) 
       y: 100,
     },
     { opacity: 1, y: 0, stagger: 0.2 },
-    "-=.05"
+    "-=.05",
   )
 }
 
 const animateLifeGlimpseAndSoftSkillsTitle = (timeLine: TypeTimeLine) => {
   const contentChildElements = document.querySelectorAll(
-    ".life-glimpse-and-soft-skills-content-child"
+    ".life-glimpse-and-soft-skills-content-child",
   )
 
   timeLine
-    .fromTo(contentChildElements, { opacity: 0, y: 100 }, { opacity: 1, y: 0, stagger: 0.6 })
+    .fromTo(
+      contentChildElements,
+      { opacity: 0, y: 100 },
+      { opacity: 1, y: 0, stagger: 0.6 },
+    )
     .fromTo(
       "#image-soft-skills-desktop",
       { opacity: 0, scale: 0.8, y: 50 },
       { opacity: 1, scale: 1, y: 0 },
-      "-=.5"
+      "-=.5",
     )
 }
 
@@ -52,7 +60,7 @@ const imageSliderAnimate = () => {
   let imageElementList = gsap.utils.toArray("#horizontal .content")
 
   gsap.to(imageElementList, {
-    xPercent: -100 * (imageElementList.length - 1),
+    xPercent: -100 * (imageElementList.length - 0.7),
     scrollTrigger: {
       trigger: "#horizontal",
       pin: true,

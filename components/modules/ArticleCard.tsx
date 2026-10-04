@@ -35,27 +35,26 @@ const ArticleCard: React.FC<TypeArticleCardProps> = ({ article }) => {
           </p>
         </div>
       </figure>
-      <div className="card-body px-3 pb-3 pt-8 justify-between">
+      <div className="card-body p-4 pt-6 justify-between flex-1 flex flex-col gap-3">
         <h3
-          style={{ lineHeight: "1.5em", maxHeight: "3em" }}
-          className="text-xl font-dana overflow-hidden"
+          className="text-lg font-dana font-bold line-clamp-2 min-h-[3rem] leading-snug"
         >
           {getWords(article.title, 6)}
           {isTitleSummary && <>...</>}
         </h3>
-        <p className="max-h-24 text-sm overflow-hidden">
+        <p className="line-clamp-3 text-xs md:text-sm text-base-content/80 leading-relaxed flex-1">
           {getWords(article.description, 20)}
           {isDescriptionSummary && <>...</>}
         </p>
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center justify-between gap-3 pt-2 border-t border-white/5">
           <input
             disabled
             type="text"
             placeholder="leave a comment ..."
-            className="input input-md input-bordered bg-transparent flex-1"
+            className="px-3 py-1.5 text-xs rounded-xl border border-white/10 bg-transparent flex-1 placeholder:text-neutral-500"
           />
-          <button disabled className="btn">
-            <Send className="icon" />
+          <button disabled className="btn btn-sm">
+            <Send className="icon-sm" />
           </button>
         </div>
       </div>

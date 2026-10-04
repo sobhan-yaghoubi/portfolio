@@ -25,8 +25,8 @@ const Footer: React.FC = async () => {
         ))}
       </div>
       <section className="bg-color *:bg-color-content">
-        <div className="container footer dark:text-neutral-content p-4 flex-col-reverse items-center relative z-20 max-lg:footer-center">
-          <aside className="items-center grid-flow-col">
+        <div className="container p-6 flex flex-col-reverse lg:flex-row justify-between items-center text-center lg:text-right gap-6 relative z-20">
+          <aside className="flex items-center gap-3">
             <svg
               width="36"
               height="36"
@@ -40,10 +40,10 @@ const Footer: React.FC = async () => {
             </svg>
             <section>
               <p>کلیه حقوق مادی و معنوی سایت برای سازنده محفوظ است.</p>
-              <p className="mt-3">ساخته شده با 🧡 در ایران</p>
+              <p className="mt-1 text-xs opacity-70">ساخته شده با 🧡 در ایران</p>
             </section>
           </aside>
-          <nav className="grid-flow-col max-lg:flex max-lg:flex-wrap max-lg:justify-center gap-4 lg:place-self-center lg:justify-self-end">
+          <nav className="flex flex-wrap justify-center gap-4 lg:place-self-center lg:justify-self-end">
             <Email email={profile.email} className="btn btn-ghost font-normal" />
             {profile.phone && (
               <ContactMeButton phoneNumber={profile.phone} className="btn btn-ghost font-normal" />

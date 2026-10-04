@@ -44,7 +44,7 @@ const SocialFollowBox: React.FC<TypeSocialFollowBoxProps> = ({ socialMedia }) =>
         <div id="header" className="h-full flex flex-col gap-2 justify-between">
           <div>
             <h5 className="text-xl font-title">{socialMedia.title}</h5>
-            <h6 className="font-bold stat-title">{socialMedia.subtitle}</h6>
+            <h6 className="text-xs text-neutral-400 font-medium">{socialMedia.subtitle}</h6>
           </div>
           <p className="text-sm flex-1">{socialMedia.description}</p>
           <div className="flex *:gap-1 justify-between">

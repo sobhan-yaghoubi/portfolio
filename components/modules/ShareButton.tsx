@@ -5,12 +5,17 @@ import SocialLinkItem from "./social/SocialLinkItem"
 
 const ShareButton: React.FC = () => {
   return (
-    <div className="dropdown dropdown-hover dropdown-end">
-      <button tabIndex={0} className="btn btn-ghost btn-sm">
+    <div className="relative group">
+      <button
+        type="button"
+        tabIndex={0}
+        aria-label="Share"
+        className="btn btn-ghost btn-sm p-2"
+      >
         <Share2 className="icon" />
       </button>
-      <div className="dropdown-content menu px-0 z-[1]">
-        <ul tabIndex={0} className="p-2 shadow bg-base-200 rounded-box min-w-52">
+      <div className="invisible group-hover:visible group-focus-within:visible opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-all duration-200 absolute left-0 top-full pt-2 z-50">
+        <ul tabIndex={0} className="p-2 shadow-2xl bg-base-200 rounded-2xl border border-white/10 min-w-52 flex flex-col gap-1">
           <SocialLinkItem />
         </ul>
       </div>

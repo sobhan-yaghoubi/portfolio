@@ -27,20 +27,20 @@ const ProjectCard: React.FC<TypeProjectCardProps> = ({
 
   return (
     <>
-      <div className="project-card card bg-base-200 flex-1 min-w-72 max-w-full h-[490px] shadow-xl border border-white/5 hover:border-white/15 transition-all">
-        <figure className="h-52 p-2">
-          <div className="!bg-base-300 w-full h-full flex items-center justify-center rounded-xl overflow-hidden">
+      <div className="project-card card bg-base-200 flex-1 min-w-72 max-w-full h-[500px] shadow-xl border border-white/5 hover:border-white/15 transition-all flex flex-col justify-between overflow-hidden">
+        <figure className="h-48 p-2 shrink-0">
+          <div className="bg-base-300 w-full h-full flex items-center justify-center rounded-xl overflow-hidden relative">
             <Image
-              width={300}
+              width={400}
               height={300}
               src={image}
-              className="w-auto h-full object-cover"
+              className="w-full h-full object-cover"
               alt="project-image"
             />
           </div>
         </figure>
-        <div className="card-body px-3 py-4 justify-between">
-          <div className="flex flex-col gap-1">
+        <div className="card-body p-4 flex-1 flex flex-col justify-between gap-3">
+          <div className="flex flex-col gap-1.5">
             {category && (
               <span className="badge badge-primary badge-outline text-[11px] w-fit">
                 {category}
@@ -48,22 +48,24 @@ const ProjectCard: React.FC<TypeProjectCardProps> = ({
             )}
             <ProjectCardTitle title={title} />
           </div>
-          <section className="flex-1">
-            <p className="h-20 text-xs md:text-sm overflow-hidden text-base-content/80 text-justify">
-              {getWords(description, 28)}
-              {isModalSupported && <>...</>}
+
+          <div className="flex-1 flex flex-col justify-between gap-2">
+            <p className="line-clamp-3 text-xs md:text-sm text-base-content/80 text-start leading-relaxed">
+              {description}
             </p>
-            <div className="flex items-center justify-between mt-2 pt-1 border-t border-white/5">
+            <div className="flex items-center justify-between pt-2 border-t border-white/5">
               <Link
                 href={`/project/${slug || id}`}
-                className="text-xs text-primary hover:underline font-bold"
+                className="text-xs text-primary hover:underline font-bold inline-flex items-center gap-1"
               >
-                بررسی داکیومنت و معماری ←
+                <span>بررسی داکیومنت و معماری</span>
+                <span>←</span>
               </Link>
               {isModalSupported && <ProjectCardButtonDialog modalId={id} />}
             </div>
-          </section>
-          <div className="flex gap-3 [&>*]:flex-1">
+          </div>
+
+          <div className="flex gap-3 [&>*]:flex-1 pt-1">
             <ProjectCardButtonList link={link} source={source} />
           </div>
         </div>

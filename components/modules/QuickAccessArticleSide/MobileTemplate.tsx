@@ -19,7 +19,7 @@ const MobileTemplate: React.FC<MobileTemplateProps> = ({
   return (
     <div
       id="quick-show"
-      className="bg-base-100/20 backdrop-blur-md h-0 text-base-100-content px-5 flex items-center opacity-0 rounded-b-xl sticky top-0 xl:hidden"
+      className="bg-base-100/20 backdrop-blur-md h-0 text-foreground px-5 flex items-center opacity-0 rounded-b-xl sticky top-0 xl:hidden"
     >
       <Title size="lg" className="cursor-pointer">
         <h3 onClick={() => setIsShowCurrentTitle((prev) => !prev)}>

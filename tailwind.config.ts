@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss"
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,6 +9,29 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        border: "var(--border)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        primary: {
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
+        },
+        secondary: {
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
+        },
+        accent: {
+          DEFAULT: "var(--accent)",
+        },
+        neutral: {
+          DEFAULT: "var(--neutral)",
+        },
+        "base-100": "var(--base-100)",
+        "base-200": "var(--base-200)",
+        "base-300": "var(--base-300)",
+        "base-content": "var(--base-content)",
+      },
       fontFamily: {
         dana: "dana",
         "iran-sans": "iran-sans",
@@ -42,51 +66,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("daisyui"), require("tailwindcss-animate")],
-  daisyui: {
-    themes: [
-      {
-        light: {
-          background: "var(--light-background)",
-          primary: "#570df8",
-          secondary: "#f000b8",
-          accent: "#37cdbe",
-          neutral: "#f9fafb",
-          "base-100": "#fff5ee",
-          "base-200": "#ffebe5",
-          "base-300": "#ffe1db",
-          info: "#3abff8",
-          success: "#36d399",
-          warning: "#fbbd23",
-          error: "#f87272",
-        },
-      },
-      {
-        dark: {
-          background: "var(--dark-background)",
-          primary: "#a855f7",
-          secondary: "#22d3ee",
-          accent: "#f472b6",
-          neutral: "#3d4451",
-          "base-100": "#0f0616",
-          "base-200": "#1e1e2f",
-          "base-300": "#33334d",
-          info: "#3abff8",
-          success: "#36d399",
-          warning: "#fbbd23",
-          error: "#f87272",
-        },
-      },
-    ],
-    darkTheme: "dark",
-    darkMode: "class",
-    base: true,
-    styled: true,
-    utils: true,
-    prefix: "",
-    logs: false,
-    themeRoot: ":root",
-  },
+  plugins: [require("tailwindcss-animate")],
 }
 
 export default config

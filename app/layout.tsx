@@ -43,8 +43,8 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html dir="rtl" lang="fa" data-theme="dark">
-      <body className="overflow-x-hidden">
+    <html dir="rtl" lang="fa" className="dark" data-theme="dark">
+      <body className="overflow-x-hidden bg-background text-foreground">
         <ScrollSmooth>
           {children}
           <Toaster />

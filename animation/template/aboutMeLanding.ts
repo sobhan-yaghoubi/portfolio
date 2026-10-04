@@ -12,13 +12,18 @@ const animateAboutMeLandingPartOne = () => {
   timeLine.fromTo(
     "#about-me-landing-title-wrapper",
     { opacity: 0, scale: 0.8, y: 200 },
-    { opacity: 1, scale: 1, y: 0, duration: 1 }
+    { opacity: 1, scale: 1, y: 0, duration: 1 },
   )
 
   timeLine.fromTo(
     "#about-me-landing-light-bulb",
     { opacity: 0, scale: 0.5 },
-    { duration: 1, opacity: 1, scale: 1 }
+    { duration: 1, opacity: 1, scale: 1 },
+  )
+  timeLine.fromTo(
+    "#landing-scroll-down-icon",
+    { opacity: 0, delay: 2 },
+    { opacity: 1 },
   )
 }
 
@@ -31,7 +36,7 @@ const animateAboutMeLandingPartTwo = () => {
       {
         opacity: 1,
         y: 0,
-      }
+      },
     )
     .fromTo(
       "#about-me-landing-button-list .access-button",
@@ -42,7 +47,7 @@ const animateAboutMeLandingPartTwo = () => {
         y: 0,
         stagger: 0.05,
       },
-      "-=.5"
+      "-=.5",
     )
     .fromTo(
       "#about-me-landing-button-list-split",
@@ -50,6 +55,6 @@ const animateAboutMeLandingPartTwo = () => {
       {
         duration: 0.6,
         opacity: 1,
-      }
+      },
     )
 }

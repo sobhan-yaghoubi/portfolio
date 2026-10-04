@@ -1,5 +1,3 @@
-import "@/app/globals.css"
-
 import React from "react"
 
 import PackageList from "./PackageList"
@@ -9,7 +7,10 @@ import ButtonList from "./ButtonList"
 const Landing: React.FC = () => {
   return (
     <section className="center flex-col">
-      <div id="landing-bulb" className="size-10 rounded-full absolute z-0 -top-0" />
+      <div
+        id="landing-bulb"
+        className="size-10 rounded-full absolute z-0 -top-0"
+      />
       <PackageList />
       <ContentLanding />
       <ButtonList />

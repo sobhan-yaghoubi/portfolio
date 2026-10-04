@@ -1,7 +1,7 @@
 import React from "react"
 import faMessages from "@/messages/fa.json"
 import Title from "@/components/modules/Title"
-import { ScrollIcon } from "lucide-react"
+import ScrollDownAnimate from "@/components/modules/ScrollDownAnimate"
 
 const Content: React.FC = () => {
   const { title, desc } = faMessages.about
@@ -16,9 +16,8 @@ const Content: React.FC = () => {
             <h1>{title}</h1>
           </Title>
         </div>
-        <div className="w-5 h-10 border-2 border-solid rounded-md flex justify-center py-1 border-[var(--dark-background)] dark:border-[var(--light-background)]">
-          <div className="size-2 rounded-full bg-[var(--dark-background)] dark:bg-[var(--light-background)]" />
-        </div>
+        <ScrollDownAnimate className="mt-3" id="landing-scroll-down-icon" />
+
         <div
           id="about-me-landing-light-bulb"
           className="bg-gradient-to-tr from-primary to-secondary w-72 h-52 rounded-full blur-3xl absolute top-10 -z-10"

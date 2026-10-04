@@ -10,21 +10,26 @@ const ButtonList: React.FC = () => {
   return (
     <div
       id="about-me-landing-button-list"
-      className="h-fit my-12 flex items-center overflow-hidden"
+      className="h-fit my-8 sm:my-12 flex flex-wrap sm:flex-nowrap items-center justify-center gap-2 sm:gap-0 overflow-hidden"
     >
       <Link href={"/cv"}>
-        <button className="access-button btn btn-primary">
-          {readOnline}
+        <button className="access-button btn btn-primary btn-sm sm:btn-md whitespace-nowrap">
+          <span className="hidden sm:inline">{readOnline}</span>
+          <span className="sm:hidden">رزومه آنلاین</span>
           <FileText className="icon" />
         </button>
       </Link>
 
-      <div id="about-me-landing-button-list-split" className="divider divider-horizontal mx-1.5" />
+      <div
+        id="about-me-landing-button-list-split"
+        className="divider divider-horizontal mx-2 hidden sm:block"
+      />
 
       <Link href="/sobhan-yaghoubi-resume.pdf" target="_blank" download>
-        <button className="access-button btn btn-ghost">
+        <button className="access-button btn btn-ghost btn-sm sm:btn-md whitespace-nowrap border border-white/10 sm:border-transparent">
           <FolderDown className="icon" />
-          {download}
+          <span className="hidden sm:inline">{download}</span>
+          <span className="sm:hidden">دانلود رزومه</span>
         </button>
       </Link>
     </div>

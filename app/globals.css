@@ -3,6 +3,37 @@
 @tailwind utilities;
 
 :root {
+  --background: #fff5ee;
+  --foreground: #1e1e2f;
+  --primary: #570df8;
+  --primary-foreground: #ffffff;
+  --secondary: #f000b8;
+  --secondary-foreground: #ffffff;
+  --accent: #37cdbe;
+  --neutral: #f9fafb;
+  --base-100: #fff5ee;
+  --base-200: #ffebe5;
+  --base-300: #ffe1db;
+  --base-content: #1e1e2f;
+  --border: rgba(0, 0, 0, 0.1);
+  --light-background: #fff5ee;
+  --dark-background: #0f0616;
+}
+
+.dark {
+  --background: #0f0616;
+  --foreground: #f3f4f6;
+  --primary: #a855f7;
+  --primary-foreground: #ffffff;
+  --secondary: #22d3ee;
+  --secondary-foreground: #0f0616;
+  --accent: #f472b6;
+  --neutral: #3d4451;
+  --base-100: #0f0616;
+  --base-200: #1e1e2f;
+  --base-300: #33334d;
+  --base-content: #f3f4f6;
+  --border: rgba(255, 255, 255, 0.1);
   --light-background: #fff5ee;
   --dark-background: #0f0616;
 }
@@ -37,12 +68,14 @@
   }
 
   * {
-    scrollbar-color: theme("colors.primary") transparent;
+    scrollbar-color: theme("colors.primary.DEFAULT") transparent;
     scrollbar-width: thin;
   }
 
   html {
     font-family: "iran-sans";
+    background-color: var(--background);
+    color: var(--foreground);
   }
 }
 
@@ -57,10 +90,10 @@
   }
 
   .bg-color {
-    background-color: oklch(var(--btn-color, var(--b2)));
+    background-color: var(--base-200);
   }
   .bg-color-content {
-    color: var(--fallback-bc, oklch(var(--bc) / var(--tw-text-opacity)));
+    color: var(--base-content);
   }
 
   .dir-left {
@@ -73,15 +106,151 @@
 }
 
 @layer components {
+  /* Clean Tailwind Button Styles */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:pointer-events-none select-none px-4 py-2 bg-base-200 hover:bg-base-300 text-foreground border border-white/5;
+  }
+  .btn-primary {
+    @apply bg-primary text-white border-primary hover:opacity-90 shadow-md;
+  }
+  .btn-outline {
+    @apply bg-transparent border border-white/20 text-foreground hover:bg-white/10 hover:border-white/30;
+  }
+  .btn-ghost {
+    @apply bg-transparent border-transparent hover:bg-white/10 text-foreground shadow-none;
+  }
+  .btn-link {
+    @apply bg-transparent border-transparent text-primary hover:underline shadow-none p-0 h-auto;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs rounded-lg;
+  }
+  .btn-md {
+    @apply px-4 py-2 text-sm rounded-xl;
+  }
+  .btn-lg {
+    @apply px-6 py-3 text-base rounded-2xl;
+  }
+
+  /* Clean Tailwind Badge Styles */
+  .badge {
+    @apply inline-flex items-center justify-center rounded-lg px-2.5 py-0.5 text-xs font-medium border border-white/10 bg-base-200 text-foreground;
+  }
+  .badge-primary {
+    @apply bg-primary text-white border-transparent;
+  }
+  .badge-secondary {
+    @apply bg-secondary text-white border-transparent;
+  }
+  .badge-outline {
+    @apply bg-transparent border border-current text-primary;
+  }
+  .badge-neutral {
+    @apply bg-neutral-800 text-neutral-200 border-neutral-700;
+  }
+  .badge-sm {
+    @apply px-2 py-0.5 text-[11px];
+  }
+
+  /* Clean Tailwind Card & Modal Styles */
+  .card {
+    @apply rounded-2xl bg-base-200 border border-white/5 shadow-xl transition-all flex flex-col overflow-hidden;
+  }
+  .card-body {
+    @apply p-4 flex flex-col flex-1;
+  }
+  .card-side {
+    @apply flex flex-row;
+  }
+  .modal {
+    @apply fixed inset-0 z-50 bg-black/60 backdrop-blur-sm items-center justify-center hidden;
+  }
+  .modal[open] {
+    @apply flex;
+  }
+  .modal-box {
+    @apply relative max-w-lg w-full bg-base-200 p-6 rounded-2xl shadow-2xl border border-white/10;
+  }
+  .modal-backdrop {
+    @apply fixed inset-0 -z-10 cursor-pointer;
+  }
+
+  /* Clean Tailwind Timeline Styles */
+  .timeline {
+    position: relative;
+    display: flex;
+    width: 100%;
+  }
+  .timeline-vertical {
+    flex-direction: column;
+  }
+  .timeline-vertical > li {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: stretch;
+    width: 100%;
+  }
+  .timeline-middle {
+    grid-column-start: 2;
+    z-index: 10;
+    justify-self: center;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .timeline-start {
+    grid-column-start: 1;
+    justify-self: end;
+  }
+  .timeline-end {
+    grid-column-start: 3;
+    justify-self: start;
+  }
+  .timeline-vertical hr {
+    width: 2px;
+    flex: 1 1 auto;
+    background-color: var(--primary);
+    opacity: 0.4;
+    border: none;
+    margin: 4px 0 0 0;
+  }
+
+  @media (max-width: 767px) {
+    .timeline-vertical.max-md\:timeline-compact > li {
+      grid-template-columns: auto 1fr;
+    }
+    .timeline-vertical.max-md\:timeline-compact .timeline-middle {
+      grid-column-start: 1;
+    }
+    .timeline-vertical.max-md\:timeline-compact .timeline-start,
+    .timeline-vertical.max-md\:timeline-compact .timeline-end {
+      grid-column-start: 2;
+      justify-self: start !important;
+      text-align: start !important;
+    }
+  }
+
+  /* Divider */
+  .divider {
+    @apply flex items-center self-stretch;
+  }
+  .divider-horizontal {
+    @apply w-px h-6 bg-white/10 mx-2 self-center;
+  }
+
   .highlight-title {
     @apply font-oswald font-bold text-primary;
   }
   .text-gradient {
     @apply bg-gradient-to-tl bg-clip-text text-transparent transition duration-100;
   }
+  .dark .text-gradient,
   [data-theme="dark"] .text-gradient {
     @apply from-neutral to-neutral-400;
   }
+  .light .text-gradient,
   [data-theme="light"] .text-gradient {
     @apply from-black to-black;
   }
@@ -123,21 +292,23 @@
   }
 
   .outline-active {
-    background-color: var(--fallback-b1, oklch(var(--bc) / var(--tw-bg-opacity)));
-    color: var(--fallback-b1, oklch(var(--b1) / var(--tw-text-opacity)));
+    background-color: var(--base-100);
+    color: var(--base-content);
   }
   .outline-active:hover {
     color: unset;
     background-color: unset;
-    border: solid 2px var(--fallback-b1, oklch(var(--bc) / var(--tw-bg-opacity)));
+    border: solid 2px var(--border);
   }
 
   .glass {
     backdrop-filter: unset !important;
     background-color: transparent;
 
+    .dark &,
     [data-theme="dark"] & {
-      background-image: linear-gradient(
+      background-image:
+        linear-gradient(
           135deg,
           rgb(255 255 255 / var(--glass-opacity, 30%)) 0%,
           #00000000 100%
@@ -149,8 +320,10 @@
         );
     }
 
+    .light &,
     [data-theme="light"] & {
-      background-image: linear-gradient(
+      background-image:
+        linear-gradient(
           135deg,
           rgb(255 255 255 / var(--glass-opacity, 30%)) 0%,
           #ffe1db 100%
@@ -163,13 +336,15 @@
     }
   }
 
+  .dark .liner,
   [data-theme="dark"] .liner {
     background-image: linear-gradient(to bottom, #2f283a, #0f0616 60%);
   }
+  .light .liner,
   [data-theme="light"] .liner {
     background-image: linear-gradient(
       to bottom,
-      theme("colors.base-200"),
+      var(--base-200),
       var(--light-background) 60%
     );
   }
