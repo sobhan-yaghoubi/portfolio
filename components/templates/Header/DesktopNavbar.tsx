@@ -5,7 +5,6 @@ import { TypeDesktopNavbarProps } from "@/types/Utils"
 
 import Magnetic from "../../modules/Magnetic"
 import Link from "next/link"
-import Search from "../../modules/Search"
 import ShareButton from "../../modules/ShareButton"
 import ChangeThemeButton from "../../modules/ChangeThemeButton"
 import Indicator from "@/components/modules/Indicator"
@@ -28,8 +27,7 @@ const DesktopNavbar: React.FC<TypeDesktopNavbarProps> = ({ menuList }) => {
           </Magnetic>
         ))}
       </ul>
-      <div className="flex items-center gap-1">
-        <Search />
+      <div className="flex items-center gap-2">
         <ShareButton />
         <ChangeThemeButton />
       </div>

@@ -7,7 +7,7 @@
   },
   "heroSection": {
     "desc": "توسعه‌دهنده Front-end و Full-Stack با بیش از ۶ سال تجربه تخصصی در وب. تمرکز بر معماری و توسعه مقیاس‌پذیر سامانه‌های B2B، B2C و پلتفرم‌های SaaS، با تخصص در بهینه‌سازی Performance (+90 در PageSpeed Insights) و تجربه سرپرستی تیم فنی در Vesta-web.",
-    "title": "سبحان یعقوبی | Head of Frontend & Full-Stack Developer"
+    "title": "سبحان یعقوبی </br> Head of Frontend & Full-Stack Developer"
   },
   "header": {
     "item": {
@@ -19,7 +19,11 @@
       "skills": "مهارت‌ها"
     },
     "search": {
-      "hashtag": { "experience": "تجربیات", "project": "پروژه‌ها", "skills": "مهارت‌ها" },
+      "hashtag": {
+        "experience": "تجربیات",
+        "project": "پروژه‌ها",
+        "skills": "مهارت‌ها"
+      },
       "placeholder": "جستجو در"
     }
   },

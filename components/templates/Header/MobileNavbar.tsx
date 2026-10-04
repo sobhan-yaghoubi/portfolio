@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils"
 
 import ChangeThemeButton from "../../modules/ChangeThemeButton"
 import Link from "next/link"
-import Search from "../../modules/Search"
 import Indicator from "@/components/modules/Indicator"
 
 type MobileNavbarProps = {
@@ -64,11 +63,7 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({ menuList, ShareButtonCompon
             </div>
           </div>
 
-          <div className="my-4">
-            <Search />
-          </div>
-
-          <ul className="flex flex-col gap-2 overflow-y-auto flex-1">
+          <ul className="flex flex-col gap-2 overflow-y-auto flex-1 mt-4">
             {menuList.map((item, index) => (
               <li onClick={() => setIsMenu(false)} key={index} className="relative w-full">
                 {item.isSoon && <Indicator className="-top-1">{utils.soon}</Indicator>}
