@@ -1,14 +1,10 @@
-import { env } from "process"
 import { TypeProject } from "../types/Project"
+import { projectsData } from "@/data/projects"
 
-export const getProjectList = async () => {
-  try {
-    const res = await fetch(`${env.NEXT_PUBLIC_API_URL}/project?technicalSkillListInclude=true`, {
-      next: { revalidate: 60 },
-    })
-    const projectList = (await res.json()) as TypeProject[]
-    return projectList
-  } catch (error) {
-    return [] as TypeProject[]
-  }
+export const getProjectList = async (): Promise<TypeProject[]> => {
+  return projectsData
+}
+
+export const getProjectBySlug = async (slugOrId: string): Promise<TypeProject | undefined> => {
+  return projectsData.find((p) => p.slug === slugOrId || p.id === slugOrId)
 }

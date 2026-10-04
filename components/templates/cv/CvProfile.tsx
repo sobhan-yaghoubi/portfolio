@@ -25,10 +25,17 @@ const CvProfile: React.FC<TypeCvProfileProps> = ({ profile }) => {
           src={profile.image || ""}
           alt="profile"
         />
-        <Title size="lg" className="text-center">
-          <h1>{`${profile.name} ${profile.family}`}</h1>
-        </Title>
-        <p className="btn btn-primary">Front End Developer</p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <p className="btn btn-primary">Front-End & Full-Stack Developer | Team Lead</p>
+          <a
+            href="/sobhan-yaghoubi-resume.pdf"
+            target="_blank"
+            download
+            className="btn btn-outline btn-sm"
+          >
+            دانلود رزومه (PDF)
+          </a>
+        </div>
         <ul className="w-full mt-3 flex justify-between items-center max-lg:flex-col max-lg:gap-6">
           <li className="flex items-center gap-2">
             <Email email={profile.email} className="*:stroke-primary" />

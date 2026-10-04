@@ -1,5 +1,5 @@
 import React from "react"
-import Header from "@/components/templates/header/Header"
+import Header from "@/components/templates/Header/Header"
 import Footer from "@/components/templates/Footer"
 
 const layout: React.FC<React.PropsWithChildren> = ({ children }) => {

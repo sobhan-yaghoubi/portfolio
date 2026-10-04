@@ -10,8 +10,12 @@ import ProjectCardTitle from "./ProjectCardTitle"
 import ProjectCardButtonList from "./ProjectCardButtonList"
 import { ProjectCardButtonDialog, ProjectCardDialog } from "./ProjectCardDialog"
 
+import Link from "next/link"
+
 const ProjectCard: React.FC<TypeProjectCardProps> = ({
   id,
+  slug,
+  category,
   image,
   title,
   link,
@@ -23,7 +27,7 @@ const ProjectCard: React.FC<TypeProjectCardProps> = ({
 
   return (
     <>
-      <div className="project-card card bg-base-200 flex-1 min-w-72 max-w-full h-[470px] shadow-xl">
+      <div className="project-card card bg-base-200 flex-1 min-w-72 max-w-full h-[490px] shadow-xl border border-white/5 hover:border-white/15 transition-all">
         <figure className="h-52 p-2">
           <div className="!bg-base-300 w-full h-full flex items-center justify-center rounded-xl overflow-hidden">
             <Image
@@ -36,13 +40,28 @@ const ProjectCard: React.FC<TypeProjectCardProps> = ({
           </div>
         </figure>
         <div className="card-body px-3 py-4 justify-between">
-          <ProjectCardTitle title={title} />
+          <div className="flex flex-col gap-1">
+            {category && (
+              <span className="badge badge-primary badge-outline text-[11px] w-fit">
+                {category}
+              </span>
+            )}
+            <ProjectCardTitle title={title} />
+          </div>
           <section className="flex-1">
-            <p className="h-28 text-sm overflow-hidden">
-              {getWords(description, 35)}
+            <p className="h-20 text-xs md:text-sm overflow-hidden text-base-content/80 text-justify">
+              {getWords(description, 28)}
               {isModalSupported && <>...</>}
             </p>
-            {isModalSupported && <ProjectCardButtonDialog modalId={id} />}
+            <div className="flex items-center justify-between mt-2 pt-1 border-t border-white/5">
+              <Link
+                href={`/project/${slug || id}`}
+                className="text-xs text-primary hover:underline font-bold"
+              >
+                بررسی داکیومنت و معماری ←
+              </Link>
+              {isModalSupported && <ProjectCardButtonDialog modalId={id} />}
+            </div>
           </section>
           <div className="flex gap-3 [&>*]:flex-1">
             <ProjectCardButtonList link={link} source={source} />

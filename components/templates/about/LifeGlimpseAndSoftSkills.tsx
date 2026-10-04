@@ -34,7 +34,7 @@ const LifeGlimpseAndSoftSkills: React.FC = () => {
           id="image-soft-skills-desktop"
           width={600}
           height={600}
-          src={"/image/aboutMe.png"}
+          src={"/image/aboutme.png"}
           alt="about me"
           className="px-12 max-xl:mt-12 max-md:hidden"
         />

@@ -11,10 +11,10 @@ const Header: React.FC = () => {
   const menu = [
     { href: "/", title: header.item.home, isSoon: false },
     { href: "/#project-list", title: header.item.projects, isSoon: false },
-    { href: "/about", title: header.item.about, isSoon: false },
+    { href: "/#technical-growth", title: header.item.experience, isSoon: false },
     { href: "/about#skills", title: header.item.skills, isSoon: false },
-    { href: "/", title: header.item.experience, isSoon: true },
-    { href: "/", title: header.item.contact, isSoon: true },
+    { href: "/about", title: header.item.about, isSoon: false },
+    { href: "/#footer", title: header.item.contact, isSoon: false },
   ]
 
   return (

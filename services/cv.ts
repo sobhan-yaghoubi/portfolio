@@ -1,12 +1,6 @@
-import { env } from "process"
 import { TypeCv } from "../types/Cv"
+import { cvData } from "@/data/cv"
 
-export const getCv = async () => {
-  try {
-    const res = await fetch(`${env.NEXT_PUBLIC_API_URL}/cv`)
-    const profile = (await res.json()) as TypeCv
-    return profile
-  } catch (error) {
-    return {} as TypeCv
-  }
+export const getCv = async (): Promise<TypeCv> => {
+  return cvData
 }

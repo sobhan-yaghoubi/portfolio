@@ -10,10 +10,15 @@ const ContentLanding: React.FC = async () => {
   const { title } = faMessages.heroSection
   const profile = await getProfile()
 
-  const titleText = title.replace(
-    /[Nn][Ee][Xx][Tt] [Jj][Ss]/g,
-    `<span class="highlight-title">Next Js</span>`
-  )
+  const titleText = title
+    .replace(
+      /Head of Frontend/gi,
+      `<span class="highlight-title">Head of Frontend</span>`
+    )
+    .replace(
+      /Full-Stack/gi,
+      `<span class="highlight-title">Full-Stack</span>`
+    )
   return (
     <>
       <div id="landing-content-wrapper" className="center flex-col lg:mt-12">

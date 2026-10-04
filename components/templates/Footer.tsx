@@ -13,7 +13,7 @@ const Footer: React.FC = async () => {
   const profile = await getProfile()
   const socialMediaList = await getSocialMediaList()
   return (
-    <footer>
+    <footer id="footer">
       <div className="mb-3 center">
         <ScrollTo className="btn" scrollToElement={"header"}>
           <ArrowUp />

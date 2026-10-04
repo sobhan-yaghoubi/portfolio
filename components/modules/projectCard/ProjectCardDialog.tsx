@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link"
 
 import { TypeProjectCardButtonDialogProps, TypeProjectCardDialogProps } from "@/types/Project"
 
@@ -36,8 +37,11 @@ export const ProjectCardDialog: React.FC<TypeProjectCardDialogProps> = ({ projec
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-3 mt-2 pt-2 border-t border-white/10">
           <ProjectCardButtonList link={project.link} source={project.source} />
+          <Link href={`/project/${modalId}`} className="btn btn-primary btn-sm">
+            بررسی کامل معماری و داکیومنت‌ها
+          </Link>
         </div>
       </div>
       <form method="dialog" className="modal-backdrop">

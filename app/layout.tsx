@@ -1,15 +1,21 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 
 import "./globals.css"
 
 import ScrollSmooth from "../components/templates/ScrollSmooth"
 import { Toaster } from "@/components/ui/toaster"
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
+
 export const metadata: Metadata = {
-  title: "Sobhan Yaghobi",
-  viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+  title: "Sobhan Yaghobi | Front-End & Full-Stack Developer",
   description:
-    "Hire Sobhan Yaghobi, a frontend developer specializing in React, Next.js, and TypeScript. Contact me to discuss your project needs.",
+    "Portfolio of Sobhan Yaghobi - Front-End & Full-Stack Developer, Team Lead specializing in Next.js, React, TypeScript, and Scalable Web Architecture.",
   keywords:
     "Sobhan Yaghobi, frontend developer, hire developer, portfolio, React, Next.js, TypeScript, contact developer, web developer",
   openGraph: {

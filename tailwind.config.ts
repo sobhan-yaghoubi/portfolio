@@ -79,6 +79,7 @@ const config: Config = {
       },
     ],
     darkTheme: "dark",
+    darkMode: "class",
     base: true,
     styled: true,
     utils: true,

@@ -1,14 +1,6 @@
-import { env } from "process"
 import { TypeTechnicalGrowth } from "../types/TechnicalGrowth"
+import { technicalGrowthData } from "@/data/growth"
 
-export const getTechnicalGrowthList = async () => {
-  try {
-    const res = await fetch(`${env.NEXT_PUBLIC_API_URL}/technicalgrowth`, {
-      next: { revalidate: 60 },
-    })
-    const technicalGrowthList = (await res.json()) as TypeTechnicalGrowth[]
-    return technicalGrowthList
-  } catch (error) {
-    return [] as TypeTechnicalGrowth[]
-  }
+export const getTechnicalGrowthList = async (): Promise<TypeTechnicalGrowth[]> => {
+  return technicalGrowthData
 }

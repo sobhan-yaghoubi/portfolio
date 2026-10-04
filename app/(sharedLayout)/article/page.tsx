@@ -1,6 +1,6 @@
 import React from "react"
 
-import QuickAccessArticleSide from "@/components/modules/quickAccessArticleSide/QuickAccessArticleSide"
+import QuickAccessArticleSide from "@/components/modules/QuickAccessArticleSide/QuickAccessArticleSide"
 import Article from "@/components/modules/Article"
 import RelatedArticleList from "@/components/modules/RelatedArticleList"
 import CommentArticle from "@/components/modules/CommentArticle"

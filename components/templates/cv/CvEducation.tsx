@@ -7,17 +7,17 @@ const CvEducation: React.FC = () => {
       <Title size="md">
         <h3>مدارک تحصیلی</h3>
       </Title>
-      <ul>
-        <li className="flex items-center justify-between [&>div]:p-3">
+      <ul className="space-y-3">
+        <li className="flex items-center justify-between [&>div]:p-3 rounded-lg bg-base-200/50">
           <div className="flex-1">
-            <b className="text-lg">شبکه و نرم افزار</b>
-            <p>دیپلم - هنرستان شریعتی - نیشابور</p>
+            <b className="text-lg">کارشناسی مدیریت کسب‌وکار (BBA)</b>
+            <p>دانشگاه پیام نور مشهد</p>
           </div>
-          <div className="flex flex-col items-end">
-            <p>مهر 1400 تا خرداد 1403</p>
-            <p className="bg-white/30 w-fit p-1 rounded-md">
-              معدل <b>18.77</b>
-            </p>
+        </li>
+        <li className="flex items-center justify-between [&>div]:p-3 rounded-lg bg-base-200/50">
+          <div className="flex-1">
+            <b className="text-lg">شبکه و نرم‌افزار</b>
+            <p>دیپلم - هنرستان دکتر علی شریعتی، نیشابور</p>
           </div>
         </li>
       </ul>

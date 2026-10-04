@@ -1,14 +1,6 @@
-import { env } from "process"
 import { TypeSocialMedia } from "../types/SocialMedia"
+import { socialMediaData } from "@/data/socialMedia"
 
-export const getSocialMediaList = async () => {
-  try {
-    if (!env.NEXT_PUBLIC_API_URL) return [] as TypeSocialMedia[]
-
-    const res = await fetch(`${env.NEXT_PUBLIC_API_URL}/socialMedia`)
-    const socialMediaList = (await res.json()) as TypeSocialMedia[]
-    return socialMediaList
-  } catch (error) {
-    return [] as TypeSocialMedia[]
-  }
+export const getSocialMediaList = async (): Promise<TypeSocialMedia[]> => {
+  return socialMediaData
 }
