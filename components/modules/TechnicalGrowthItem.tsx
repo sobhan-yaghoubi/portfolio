@@ -21,7 +21,7 @@ const TechnicalGrowthItem: React.FC<TypeTechnicalGrowthItemProps> = ({
           <Check className="size-4 stroke-[3]" />
         </div>
         {index + 1 !== technicalGrowthListLength && (
-          <hr className="technical-growth-item-hr w-0.5 flex-1 bg-primary/40 border-none my-1 min-h-[3rem]" />
+          <hr className="technical-growth-item-hr w-0.5 flex-1 bg-primary/40 border-none mt-2 mb-0 min-h-[3rem]" />
         )}
       </div>
       <div
