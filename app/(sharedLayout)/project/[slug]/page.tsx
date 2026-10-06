@@ -13,6 +13,13 @@ import {
   AlertCircle,
   Layers,
   Award,
+  Monitor,
+  Target,
+  UserCheck,
+  FolderGit2,
+  Box,
+  Sparkles,
+  Trophy,
 } from "lucide-react"
 
 import Title from "@/components/modules/Title"
@@ -122,6 +129,60 @@ export default async function ProjectDetailPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Featured Cover Showcase */}
+      {project.image && (
+        <section className="relative my-8 group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 via-secondary/20 to-primary/30 rounded-3xl blur-2xl opacity-40 group-hover:opacity-70 transition duration-1000 -z-10" />
+          <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 bg-base-200/90 shadow-2xl backdrop-blur-md">
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={1600}
+              height={900}
+              className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+              priority
+            />
+          </div>
+        </section>
+      )}
+
+      {/* The Problem & My Role */}
+      {(project.theProblem || project.myRole) && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10">
+          {project.theProblem && (
+            <div className="bg-base-200/60 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col justify-between shadow-lg">
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <Target className="size-6 text-primary shrink-0" />
+                  <h2 className="text-xl md:text-2xl font-dana font-bold text-base-content">
+                    چالش اصلی محصول (The Problem)
+                  </h2>
+                </div>
+                <p className="text-sm md:text-base text-base-content/85 leading-relaxed text-justify">
+                  {project.theProblem}
+                </p>
+              </div>
+            </div>
+          )}
+
+          {project.myRole && (
+            <div className="bg-base-200/60 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col justify-between shadow-lg">
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <UserCheck className="size-6 text-secondary shrink-0" />
+                  <h2 className="text-xl md:text-2xl font-dana font-bold text-base-content">
+                    نقش و مسئولیت‌های من (My Role & Responsibilities)
+                  </h2>
+                </div>
+                <p className="text-sm md:text-base text-base-content/85 leading-relaxed text-justify">
+                  {project.myRole}
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Main Grid: Architecture & Challenges */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-12">
         {/* Column 1: Highlights */}
@@ -179,7 +240,183 @@ export default async function ProjectDetailPage({ params }: Props) {
         )}
       </div>
 
-      {/* Tech Stack Matrix */}
+      {/* Monorepo Architecture & Workspace Packages */}
+      {project.monorepoPackages && project.monorepoPackages.length > 0 && (
+        <section className="my-14">
+          <div className="flex flex-col gap-2 mb-6">
+            <div className="flex items-center gap-2">
+              <FolderGit2 className="size-6 text-primary" />
+              <h2 className="text-2xl md:text-3xl font-dana font-bold">
+                معماری Monorepo و پکیج‌های اشتراکی (pnpm workspaces)
+              </h2>
+            </div>
+            <p className="text-sm md:text-base text-base-content/70">
+              جداسازی مسئولیت‌ها و هماهنگی کامل میان Dashboard (توسعه‌یافته با Vite) و Storefront (توسعه‌یافته با Next.js) از طریق پکیج‌های اشتراکی فضای کاری
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {project.monorepoPackages.map((pkg, idx) => (
+              <div
+                key={idx}
+                className="bg-base-200/60 border border-white/10 rounded-2xl p-5 hover:border-white/20 transition-all flex flex-col gap-2.5 shadow-md"
+              >
+                <div className="flex items-center gap-2">
+                  <Box className="size-4 text-primary shrink-0" />
+                  <span className="font-mono text-sm md:text-base font-bold text-primary tracking-wide">
+                    {pkg.name}
+                  </span>
+                </div>
+                <p className="text-xs md:text-sm text-base-content/80 leading-relaxed text-justify">
+                  {pkg.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Key Features & Capabilities */}
+      {project.keyFeatures && project.keyFeatures.length > 0 && (
+        <section className="my-14">
+          <div className="flex flex-col gap-2 mb-6">
+            <div className="flex items-center gap-2">
+              <Sparkles className="size-6 text-secondary" />
+              <h2 className="text-2xl md:text-3xl font-dana font-bold">
+                امکانات کلیدی و قابلیت‌های پلتفرم
+              </h2>
+            </div>
+            <p className="text-sm md:text-base text-base-content/70">
+              ویرایشگر پیشرفته استایل، اتوماسیون محتوا و رزرواسیون، و زیرساخت استاندارد سئوی تکنیکال
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {project.keyFeatures.map((feat, idx) => (
+              <div
+                key={idx}
+                className="bg-base-200/60 border border-white/10 rounded-2xl p-6 flex flex-col justify-between gap-4 shadow-md"
+              >
+                <div className="flex flex-col gap-2.5">
+                  {feat.tag && (
+                    <span className="badge badge-secondary badge-outline text-xs w-fit font-medium">
+                      {feat.tag}
+                    </span>
+                  )}
+                  <h3 className="text-base md:text-lg font-dana font-bold text-base-content">
+                    {feat.title}
+                  </h3>
+                  <p className="text-xs md:text-sm text-base-content/80 leading-relaxed text-justify">
+                    {feat.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Visual Documentation & Architecture Gallery */}
+      {project.gallery && project.gallery.length > 0 && (
+        <section className="my-16">
+          <div className="flex flex-col gap-2 mb-8">
+            <div className="flex items-center gap-2">
+              <Monitor className="size-6 text-primary" />
+              <h2 className="text-2xl md:text-3xl font-dana font-bold">
+                مستندات بصری و معماری پلتفرم
+              </h2>
+            </div>
+            <p className="text-sm md:text-base text-base-content/70">
+              تصاویر واقعی از محیط ویرایشگر بصری، پنل‌های تنظیمات اسکیما، ویرایشگر Scoped CSS، خروجی رندر شده Next.js و پیش‌نمایش ریسپانسیو
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-10">
+            {project.gallery.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-base-200/60 border border-white/10 rounded-2xl md:rounded-3xl p-5 md:p-8 flex flex-col gap-5 shadow-xl hover:border-white/20 transition-all duration-300"
+              >
+                {/* Header with tags and title */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-white/5 pb-4">
+                  <div className="flex flex-col gap-1">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      {item.tag && (
+                        <span className="badge badge-primary badge-outline text-xs font-semibold">
+                          {item.tag}
+                        </span>
+                      )}
+                      <h3 className="text-lg md:text-xl font-dana font-bold text-base-content">
+                        {item.title}
+                      </h3>
+                    </div>
+                    {item.subtitle && (
+                      <span className="text-xs text-base-content/60 font-mono tracking-wide">
+                        {item.subtitle}
+                      </span>
+                    )}
+                  </div>
+                  <a
+                    href={item.image}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-primary hover:underline font-semibold self-start md:self-auto shrink-0"
+                  >
+                    <span>مشاهده تصویر تمام‌صفحه</span>
+                    <ExternalLink className="size-3.5" />
+                  </a>
+                </div>
+
+                {/* High-res Image Preview */}
+                <div className="relative rounded-xl md:rounded-2xl overflow-hidden border border-white/10 bg-base-300/60 shadow-lg group">
+                  <a
+                    href={item.image}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block cursor-zoom-in"
+                  >
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={1600}
+                      height={900}
+                      className="w-full h-auto object-cover transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+                    />
+                  </a>
+                </div>
+
+                {/* Description */}
+                {item.description && (
+                  <p className="text-sm md:text-base text-base-content/85 leading-relaxed text-justify bg-base-300/40 p-4 rounded-xl border border-white/5">
+                    {item.description}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Impact & Lessons Learned */}
+      {project.impact && (
+        <section className="my-14 relative overflow-hidden rounded-2xl md:rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/10 via-base-200/80 to-secondary/10 p-6 md:p-10 shadow-xl">
+          <div className="flex flex-col md:flex-row items-start gap-5">
+            <div className="p-3.5 rounded-2xl bg-primary/20 text-primary shrink-0 shadow-inner">
+              <Trophy className="size-7 md:size-9" />
+            </div>
+            <div className="flex flex-col gap-3">
+              <h2 className="text-xl md:text-2xl font-dana font-bold text-base-content">
+                دستاوردها و نتایج کلیدی پروژه (Impact & Lessons Learned)
+              </h2>
+              <p className="text-sm md:text-base text-base-content/90 leading-relaxed text-justify">
+                {project.impact}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Tech Stack Matrix & Breakdown */}
       {project.technicalSkillList && project.technicalSkillList.length > 0 && (
         <section className="bg-base-200/40 border border-white/5 rounded-2xl p-6 md:p-8 my-12">
           <h2 className="text-xl font-dana font-bold mb-6">
@@ -204,6 +441,30 @@ export default async function ProjectDetailPage({ params }: Props) {
               </div>
             ))}
           </div>
+
+          {/* Detailed Categorized Breakdown */}
+          {project.techStackBreakdown && project.techStackBreakdown.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 pt-6 border-t border-white/5">
+              {project.techStackBreakdown.map((group, idx) => (
+                <div
+                  key={idx}
+                  className="bg-base-300/40 rounded-xl p-4 border border-white/5 flex flex-col gap-2.5"
+                >
+                  <h3 className="font-dana font-bold text-sm text-primary">
+                    {group.category}
+                  </h3>
+                  <ul className="space-y-1.5 text-xs text-base-content/85 font-iran-sans">
+                    {group.items.map((item, itemIdx) => (
+                      <li key={itemIdx} className="flex items-center gap-2">
+                        <span className="size-1.5 rounded-full bg-secondary shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          )}
         </section>
       )}
 

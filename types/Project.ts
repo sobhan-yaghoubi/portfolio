@@ -5,6 +5,30 @@ export type TypeProjectChallenge = {
   solution: string
 }
 
+export type TypeProjectGalleryItem = {
+  title: string
+  subtitle?: string
+  tag?: string
+  image: string
+  description?: string
+}
+
+export type TypeProjectPackage = {
+  name: string
+  description: string
+}
+
+export type TypeProjectFeature = {
+  title: string
+  description: string
+  tag?: string
+}
+
+export type TypeProjectTechCategory = {
+  category: string
+  items: string[]
+}
+
 export type TypeProject = {
   id: string
   slug?: string
@@ -17,9 +41,16 @@ export type TypeProject = {
   link: string
   source: string
   description: string
+  theProblem?: string
+  myRole?: string
   technicalSkillList: TypeTechnicalSkill[]
   highlights?: string[]
   challenges?: TypeProjectChallenge[]
+  gallery?: TypeProjectGalleryItem[]
+  monorepoPackages?: TypeProjectPackage[]
+  keyFeatures?: TypeProjectFeature[]
+  techStackBreakdown?: TypeProjectTechCategory[]
+  impact?: string
 }
 
 export type TypeProjectCardProps = TypeProject
