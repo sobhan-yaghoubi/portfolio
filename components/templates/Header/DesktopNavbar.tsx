@@ -4,10 +4,10 @@ import faMessages from "@/messages/fa.json"
 import { TypeDesktopNavbarProps } from "@/types/Utils"
 
 import Magnetic from "../../modules/Magnetic"
-import Link from "next/link"
 import ShareButton from "../../modules/ShareButton"
 import ChangeThemeButton from "../../modules/ChangeThemeButton"
 import Indicator from "@/components/modules/Indicator"
+import DesktopNavItem from "./DesktopNavItem"
 
 const DesktopNavbar: React.FC<TypeDesktopNavbarProps> = ({ menuList }) => {
   const { utils } = faMessages
@@ -19,10 +19,7 @@ const DesktopNavbar: React.FC<TypeDesktopNavbarProps> = ({ menuList }) => {
           <Magnetic magnetSize={0.1} key={index}>
             <li className="relative">
               {item.isSoon && <Indicator className="right-3">{utils.soon}</Indicator>}
-              <Link className="relative group" href={item.href}>
-                {item.title}
-                <span className="bg-transparent size-2 rounded-full top-[150%] left-1/2 -translate-x-1/2 -translate-y-1/2 absolute transition invisible group-hover:bg-primary group-hover:visible"></span>
-              </Link>
+              <DesktopNavItem href={item.href} title={item.title} />
             </li>
           </Magnetic>
         ))}

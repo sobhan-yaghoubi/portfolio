@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils"
 import ChangeThemeButton from "../../modules/ChangeThemeButton"
 import Link from "next/link"
 import Indicator from "@/components/modules/Indicator"
+import { useActiveNavItem } from "@/hooks/useActiveNavItem"
 
 type MobileNavbarProps = {
   menuList: { href: string; title: string; isSoon: boolean }[]
@@ -18,6 +19,7 @@ type MobileNavbarProps = {
 const MobileNavbar: React.FC<MobileNavbarProps> = ({ menuList, ShareButtonComponent }) => {
   const [isMenu, setIsMenu] = useState(false)
   const { utils } = faMessages
+  const isActive = useActiveNavItem()
 
   return (
     <div className="mobile w-full h-full center flex-row-reverse justify-between lg:hidden">
@@ -64,17 +66,27 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({ menuList, ShareButtonCompon
           </div>
 
           <ul className="flex flex-col gap-2 overflow-y-auto flex-1 mt-4">
-            {menuList.map((item, index) => (
-              <li onClick={() => setIsMenu(false)} key={index} className="relative w-full">
-                {item.isSoon && <Indicator className="-top-1">{utils.soon}</Indicator>}
-                <Link
-                  className="block py-2.5 px-3 rounded-xl hover:bg-white/5 transition-colors font-medium"
-                  href={item.href}
-                >
-                  {item.title}
-                </Link>
-              </li>
-            ))}
+            {menuList.map((item, index) => {
+              const active = isActive(item.href)
+
+              return (
+                <li onClick={() => setIsMenu(false)} key={index} className="relative w-full">
+                  {item.isSoon && <Indicator className="-top-1">{utils.soon}</Indicator>}
+                  <Link
+                    className={cn(
+                      "block py-2.5 px-3 rounded-xl transition-colors font-medium",
+                      active
+                        ? "bg-primary/10 text-primary font-semibold"
+                        : "hover:bg-white/5"
+                    )}
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </aside>
       </div>
