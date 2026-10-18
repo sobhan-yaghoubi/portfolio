@@ -8,16 +8,19 @@ import { TechnicalSkillListProps } from "@/types/TechnicalSkill"
 import Link from "next/link"
 import SkillButton from "./SkillButton"
 
-const TechnicalSkillList: React.FC<TechnicalSkillListProps> = ({ technicalSkills }) => {
+const TechnicalSkillList: React.FC<TechnicalSkillListProps> = ({
+  technicalSkills,
+}) => {
   const { technicalSkill, setTechnicalSkill } = useTechnicalSkill()
   useEffect(() => {
     const firstTechnicalSkill = technicalSkills.at(0)
 
-    if (!technicalSkill && firstTechnicalSkill) setTechnicalSkill(firstTechnicalSkill)
+    if (!technicalSkill && firstTechnicalSkill)
+      setTechnicalSkill(firstTechnicalSkill)
   }, [technicalSkill])
 
   return (
-    <ul className="h-fit flex flex-wrap gap-3">
+    <ul id="skill-list" className="h-fit flex flex-wrap gap-3">
       {technicalSkills?.map((skill) => (
         <li className="skill-item" key={skill.id}>
           <Link className="lg:hidden" href={`#${skill.name}`}>
