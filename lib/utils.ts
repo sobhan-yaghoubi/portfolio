@@ -20,3 +20,8 @@ export const getWords = (sentence: string, wordsNumber: number) =>
   sentence.split(" ").slice(0, wordsNumber).join(" ")
 
 export const isEven = (number: number) => number % 2 === 0
+
+const FA_DIGITS = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"]
+
+export const toFaDigits = (value: string | number) =>
+  String(value).replace(/\d/g, (digit) => FA_DIGITS[Number(digit)])

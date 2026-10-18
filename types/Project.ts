@@ -57,6 +57,11 @@ export type TypeProject = {
   impact?: string
 }
 
+export type TypeProjectSection = {
+  id: string
+  title: string
+}
+
 export type TypeProjectCardProps = TypeProject
 
 export type TypeProjectCardTitleProps = Pick<TypeProject, "title">
