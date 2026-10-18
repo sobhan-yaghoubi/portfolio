@@ -11,26 +11,26 @@ const config: Config = {
     extend: {
       colors: {
         border: "var(--border)",
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "rgb(var(--background-rgb) / <alpha-value>)",
+        foreground: "rgb(var(--foreground-rgb) / <alpha-value>)",
         primary: {
-          DEFAULT: "var(--primary)",
-          foreground: "var(--primary-foreground)",
+          DEFAULT: "rgb(var(--primary-rgb) / <alpha-value>)",
+          foreground: "rgb(var(--primary-foreground-rgb) / <alpha-value>)",
         },
         secondary: {
-          DEFAULT: "var(--secondary)",
-          foreground: "var(--secondary-foreground)",
+          DEFAULT: "rgb(var(--secondary-rgb) / <alpha-value>)",
+          foreground: "rgb(var(--secondary-foreground-rgb) / <alpha-value>)",
         },
         accent: {
-          DEFAULT: "var(--accent)",
+          DEFAULT: "rgb(var(--accent-rgb) / <alpha-value>)",
         },
         neutral: {
-          DEFAULT: "var(--neutral)",
+          DEFAULT: "rgb(var(--neutral-rgb) / <alpha-value>)",
         },
-        "base-100": "var(--base-100)",
-        "base-200": "var(--base-200)",
-        "base-300": "var(--base-300)",
-        "base-content": "var(--base-content)",
+        "base-100": "rgb(var(--base-100-rgb) / <alpha-value>)",
+        "base-200": "rgb(var(--base-200-rgb) / <alpha-value>)",
+        "base-300": "rgb(var(--base-300-rgb) / <alpha-value>)",
+        "base-content": "rgb(var(--base-content-rgb) / <alpha-value>)",
       },
       fontFamily: {
         dana: "dana",

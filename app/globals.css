@@ -4,38 +4,66 @@
 
 :root {
   --background: #fff5ee;
+  --background-rgb: 255 245 238;
   --foreground: #1e1e2f;
+  --foreground-rgb: 30 30 47;
   --primary: #570df8;
+  --primary-rgb: 87 13 248;
   --primary-foreground: #ffffff;
+  --primary-foreground-rgb: 255 255 255;
   --secondary: #f000b8;
+  --secondary-rgb: 240 0 184;
   --secondary-foreground: #ffffff;
+  --secondary-foreground-rgb: 255 255 255;
   --accent: #37cdbe;
+  --accent-rgb: 55 205 190;
   --neutral: #f9fafb;
+  --neutral-rgb: 249 250 251;
   --base-100: #fff5ee;
+  --base-100-rgb: 255 245 238;
   --base-200: #ffebe5;
+  --base-200-rgb: 255 235 229;
   --base-300: #ffe1db;
+  --base-300-rgb: 255 225 219;
   --base-content: #1e1e2f;
+  --base-content-rgb: 30 30 47;
   --border: rgba(0, 0, 0, 0.1);
   --light-background: #fff5ee;
+  --light-background-rgb: 255 245 238;
   --dark-background: #0f0616;
+  --dark-background-rgb: 15 6 22;
 }
 
 .dark {
   --background: #0f0616;
+  --background-rgb: 15 6 22;
   --foreground: #f3f4f6;
+  --foreground-rgb: 243 244 246;
   --primary: #a855f7;
+  --primary-rgb: 168 85 247;
   --primary-foreground: #ffffff;
+  --primary-foreground-rgb: 255 255 255;
   --secondary: #22d3ee;
+  --secondary-rgb: 34 211 238;
   --secondary-foreground: #0f0616;
+  --secondary-foreground-rgb: 15 6 22;
   --accent: #f472b6;
+  --accent-rgb: 244 114 182;
   --neutral: #3d4451;
+  --neutral-rgb: 61 68 81;
   --base-100: #0f0616;
+  --base-100-rgb: 15 6 22;
   --base-200: #1e1e2f;
+  --base-200-rgb: 30 30 47;
   --base-300: #33334d;
+  --base-300-rgb: 51 51 77;
   --base-content: #f3f4f6;
+  --base-content-rgb: 243 244 246;
   --border: rgba(255, 255, 255, 0.1);
   --light-background: #fff5ee;
+  --light-background-rgb: 255 245 238;
   --dark-background: #0f0616;
+  --dark-background-rgb: 15 6 22;
 }
 
 @layer base {
@@ -77,11 +105,34 @@
     background-color: var(--background);
     color: var(--foreground);
   }
+
+  :where(a, button, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 0.375rem;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .text-body {
+    @apply text-[15px] leading-[2] text-base-content/85 md:text-[1rem];
+  }
+  .text-body-sm {
+    @apply text-[13.5px] leading-[1.95] text-base-content/75 md:text-[15px];
+  }
+  .text-lead {
+    @apply text-[1rem] leading-[2] text-base-content/85 md:text-[1.125rem];
+  }
+
+  .measure {
+    max-width: 68ch;
+  }
+  .measure-sm {
+    max-width: 56ch;
   }
 
   .font-title {
