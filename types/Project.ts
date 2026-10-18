@@ -5,11 +5,15 @@ export type TypeProjectChallenge = {
   solution: string
 }
 
+export type TypeProjectGalleryMediaType = "image" | "video"
+
 export type TypeProjectGalleryItem = {
   title: string
   subtitle?: string
   tag?: string
   image: string
+  mediaType?: TypeProjectGalleryMediaType
+  poster?: string
   description?: string
 }
 

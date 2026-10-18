@@ -362,27 +362,42 @@ export default async function ProjectDetailPage({ params }: Props) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs text-primary hover:underline font-semibold self-start md:self-auto shrink-0"
                   >
-                    <span>مشاهده تصویر تمام‌صفحه</span>
+                    <span>
+                      {item.mediaType === "video"
+                        ? "مشاهده ویدیو در تب جدید"
+                        : "مشاهده تصویر تمام‌صفحه"}
+                    </span>
                     <ExternalLink className="size-3.5" />
                   </a>
                 </div>
 
-                {/* High-res Image Preview */}
+                {/* High-res Media Preview (Image or Video Demo) */}
                 <div className="relative rounded-xl md:rounded-2xl overflow-hidden border border-white/10 bg-base-300/60 shadow-lg group">
-                  <a
-                    href={item.image}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block cursor-zoom-in"
-                  >
-                    <Image
+                  {item.mediaType === "video" ? (
+                    <video
                       src={item.image}
-                      alt={item.title}
-                      width={1600}
-                      height={900}
-                      className="w-full h-auto object-cover transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+                      poster={item.poster}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-auto bg-black"
                     />
-                  </a>
+                  ) : (
+                    <a
+                      href={item.image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block cursor-zoom-in"
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={1600}
+                        height={900}
+                        className="w-full h-auto object-cover transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+                      />
+                    </a>
+                  )}
                 </div>
 
                 {/* Description */}
