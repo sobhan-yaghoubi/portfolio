@@ -1,10 +1,11 @@
 import gsap from "gsap"
-import { createTimeline } from "../animationUtils"
+import { createTimeline, withMotion } from "../animationUtils"
 
-export const aboutMeLandingAnimate = () => {
-  animateAboutMeLandingPartOne()
-  animateAboutMeLandingPartTwo()
-}
+export const aboutMeLandingAnimate = () =>
+  withMotion(() => {
+    animateAboutMeLandingPartOne()
+    animateAboutMeLandingPartTwo()
+  })
 
 const animateAboutMeLandingPartOne = () => {
   const timeLine = gsap.timeline({ delay: 1 })

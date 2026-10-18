@@ -1,14 +1,15 @@
 import gsap from "gsap"
+import { MEDIA } from "../animationUtils"
 
 export const landingAnimate = () => {
   const mm = gsap.matchMedia()
 
-  mm.add("(min-width: 768px)", () => {
+  mm.add(MEDIA.motionDesktop, () => {
     animateDesktopLandingPartOne()
     animateDesktopLandingPartTwo()
   })
 
-  mm.add("(max-width: 799px)", () => {
+  mm.add(MEDIA.motionMobile, () => {
     animateMobileLanding()
   })
 }

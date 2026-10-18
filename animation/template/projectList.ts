@@ -1,6 +1,8 @@
 import gsap from "gsap"
+import { withMotion } from "../animationUtils"
 
-export const projectAnimate = () => {
+export const projectAnimate = () =>
+  withMotion(() => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#project-list",
@@ -24,4 +26,4 @@ export const projectAnimate = () => {
     { opacity: 1, y: 0, stagger: 0.2 },
     "-=.05"
   )
-}
+  })

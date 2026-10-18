@@ -1,18 +1,23 @@
 import gsap from "gsap"
-import { createTimeline } from "../animationUtils"
+import { MEDIA, createTimeline } from "../animationUtils"
 import { TypeTimeLine } from "../../types/Utils"
 
 export const lifeGlimpseAndSoftSkillsAnimate = () => {
   const mm = gsap.matchMedia()
   const timeLine = createTimeline("#life-glimpse-and-soft-skills", "-90%")
 
-  mm.add("(min-width: 768px)", () => {
+  mm.add(MEDIA.motionDesktop, () => {
     animateLifeGlimpseAndSoftSkillsShowUpForDesktop(timeLine)
   })
 
-  mm.add("(max-width: 799px)", () => {
+  mm.add(MEDIA.motionMobile, () => {
     animateLifeGlimpseAndSoftSkillsShowUpForMobile(timeLine)
     imageSliderAnimate()
+  })
+
+  mm.add(MEDIA.reduced, () => {
+    const horizontal = document.querySelector<HTMLElement>("#horizontal")
+    if (horizontal) horizontal.style.overflowX = "auto"
   })
 }
 

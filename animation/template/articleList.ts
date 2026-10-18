@@ -1,6 +1,7 @@
-import { createTimeline } from "../animationUtils"
+import { createTimeline, withMotion } from "../animationUtils"
 
-export const articleListAnimate = () => {
+export const articleListAnimate = () =>
+  withMotion(() => {
   const timeLine = createTimeline("#article-list", "-50%")
 
   timeLine
@@ -22,4 +23,4 @@ export const articleListAnimate = () => {
       { opacity: 1, y: 0, stagger: 0.2 },
       "-=.05"
     )
-}
+  })

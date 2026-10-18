@@ -1,5 +1,5 @@
 import gsap from "gsap"
-import { createTimeline } from "../animationUtils"
+import { MEDIA, createTimeline } from "../animationUtils"
 
 import { TypeTimeLine } from "../../types/Utils"
 import { TypeAnimateTechnicalGrowthElementsParams } from "../../types/TechnicalGrowth"
@@ -16,12 +16,12 @@ export const technicalGrowthListAnimate = () => {
 
   const mm = gsap.matchMedia()
 
-  mm.add("(min-width: 768px)", () => {
+  mm.add(MEDIA.motionDesktop, () => {
     animateTechnicalGrowthTitleList(timeLine)
     animateTechnicalGrowthElementsForDesktop()
   })
 
-  mm.add("(max-width: 799px)", () => {
+  mm.add(MEDIA.motionMobile, () => {
     animateTechnicalGrowthTitleList(timeLine)
     animateTechnicalGrowthElementsForMobile()
   })

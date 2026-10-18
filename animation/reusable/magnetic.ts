@@ -1,6 +1,9 @@
 import gsap from "gsap"
+import { prefersReducedMotion } from "../animationUtils"
 
 export const magneticAnimate = (magnetic: HTMLElement | null, magnetSize?: number) => {
+  if (prefersReducedMotion()) return
+
   const xTo = gsap.quickTo(magnetic, "x", { duration: 1, ease: "elastic.out(1,0.6)" })
   const yTo = gsap.quickTo(magnetic, "y", { duration: 1, ease: "elastic.out(1,0.6)" })
 

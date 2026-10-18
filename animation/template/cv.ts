@@ -1,6 +1,7 @@
-import { createTimeline } from "../animationUtils"
+import { createTimeline, withMotion } from "../animationUtils"
 
-export const cvAnimate = () => {
+export const cvAnimate = () =>
+  withMotion(() => {
   const timeline = createTimeline("#cv")
 
   timeline.fromTo(
@@ -8,4 +9,4 @@ export const cvAnimate = () => {
     { opacity: 0, y: -300 },
     { opacity: 1, y: 0, delay: 1, duration: 1 }
   )
-}
+  })
