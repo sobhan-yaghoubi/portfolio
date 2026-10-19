@@ -1,9 +1,6 @@
 import React from "react"
-
 import { TypeCvProfileProps } from "@/types/Cv"
-
 import { MapPin } from "lucide-react"
-
 import Image from "next/image"
 import Email from "../../modules/Email"
 import Title from "../../modules/Title"
@@ -25,8 +22,10 @@ const CvProfile: React.FC<TypeCvProfileProps> = ({ profile }) => {
           src={profile.image || ""}
           alt="profile"
         />
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <p className="btn btn-primary">Front-End & Full-Stack Developer | Team Lead</p>
+        <div className="flex flex-col items-center justify-center gap-3">
+          <Title size="md" className="text-center lg:whitespace-pre">
+            <h1>Front-End & Full-Stack Developer | Team Lead</h1>
+          </Title>
           <a
             href="/sobhan-yaghoubi-resume.pdf"
             target="_blank"

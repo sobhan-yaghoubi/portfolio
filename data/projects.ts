@@ -440,7 +440,7 @@ export const projectsData: TypeProject[] = [
           "صفحه سفارش‌های مشتری در داشبورد؛ تجربه پس از خرید با امکان مراجعه مجدد کاربر برای مشاهده وضعیت و جزئیات سفارش‌های ثبت‌شده.",
       },
       {
-        title: "گزارش PageSpeed Insights صفحه اصلی — دسکتاپ",
+        title: "گزارش PageSpeed Insights صفحه اصلی - دسکتاپ",
         subtitle: "REPORT-01 · PageSpeed Insights · Home · Desktop",
         tag: "Performance Evidence",
         image: asset(
@@ -450,7 +450,7 @@ export const projectsData: TypeProject[] = [
           "گزارش رسمی PageSpeed Insights صفحه اصلی در حالت دسکتاپ؛ سند عملکردی سنگین‌ترین صفحه ورودی فروشگاه.",
       },
       {
-        title: "گزارش PageSpeed Insights صفحه اصلی — موبایل",
+        title: "گزارش PageSpeed Insights صفحه اصلی - موبایل",
         subtitle: "REPORT-02 · PageSpeed Insights · Home · Mobile",
         tag: "Performance Evidence",
         image: asset(
@@ -460,7 +460,7 @@ export const projectsData: TypeProject[] = [
           "گزارش PageSpeed Insights صفحه اصلی در موبایل؛ معیار سخت‌گیرانه‌تر ارزیابی عملکرد به دلیل محدودیت منابع پردازشی و شبکه دستگاه‌های موبایل.",
       },
       {
-        title: "گزارش PageSpeed Insights صفحه محصول — دسکتاپ",
+        title: "گزارش PageSpeed Insights صفحه محصول - دسکتاپ",
         subtitle: "REPORT-03 · PageSpeed Insights · Product Page · Desktop",
         tag: "Performance Evidence",
         image: asset(
@@ -470,7 +470,7 @@ export const projectsData: TypeProject[] = [
           "سند عملکرد صفحه‌ای که سنگین‌ترین محتوای تعاملی پروژه (نمایش سه‌بعدی و ورودی AR) را میزبانی می‌کند؛ شاهد اصلی اثربخشی راهبرد Lazy Loading.",
       },
       {
-        title: "گزارش PageSpeed Insights صفحه محصول — موبایل",
+        title: "گزارش PageSpeed Insights صفحه محصول - موبایل",
         subtitle: "REPORT-04 · PageSpeed Insights · Product Page · Mobile",
         tag: "Performance Evidence",
         image: asset(
@@ -480,7 +480,7 @@ export const projectsData: TypeProject[] = [
           "وضعیت عملکرد صفحه محصول روی دستگاه‌های موبایل؛ جایی که هزینه پردازشی محتوای سه‌بعدی بیشترین اثر را بر تجربه کاربر دارد.",
       },
       {
-        title: "گزارش PageSpeed Insights ابزار پیکربندی — دسکتاپ",
+        title: "گزارش PageSpeed Insights ابزار پیکربندی - دسکتاپ",
         subtitle: "REPORT-05 · PageSpeed Insights · Configurator · Desktop",
         tag: "Performance Evidence",
         image: asset(
@@ -490,7 +490,7 @@ export const projectsData: TypeProject[] = [
           "گزارش عملکرد Configurator در دسکتاپ؛ صفحه‌ای که ترکیب کنترل‌های تعاملی و پیش‌نمایش زنده محصول را همزمان مدیریت می‌کند.",
       },
       {
-        title: "گزارش PageSpeed Insights ابزار پیکربندی — موبایل",
+        title: "گزارش PageSpeed Insights ابزار پیکربندی - موبایل",
         subtitle: "REPORT-06 · PageSpeed Insights · Configurator · Mobile",
         tag: "Performance Evidence",
         image: asset(

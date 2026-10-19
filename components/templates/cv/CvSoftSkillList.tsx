@@ -3,8 +3,11 @@ import React from "react"
 import { TypeCvSoftSkillListProps } from "@/types/Cv"
 
 import Title from "../../modules/Title"
+import { cn } from "@/lib/utils"
 
-const CvSoftSkillList: React.FC<TypeCvSoftSkillListProps> = ({ softSkillList }) => {
+const CvSoftSkillList: React.FC<TypeCvSoftSkillListProps> = ({
+  softSkillList,
+}) => {
   return (
     <section className="[&>*]:ml-3 [&>*]:mt-3 first:[&>*]:ml-0">
       <Title size="md">
@@ -18,13 +21,14 @@ const CvSoftSkillList: React.FC<TypeCvSoftSkillListProps> = ({ softSkillList }) 
               {Array(5)
                 .fill("")
                 .map((_, index) => (
-                  <input
+                  <div
                     key={index}
-                    type="radio"
-                    name={`${softSkill.name}-rating`}
-                    className="mask mask-circle"
-                    defaultChecked={index + 1 <= softSkill.score}
-                    disabled
+                    className={cn(
+                      "size-5 rounded-md",
+                      index + 1 <= softSkill.score
+                        ? "bg-primary"
+                        : "bg-base-200/50",
+                    )}
                   />
                 ))}
             </div>
