@@ -5,7 +5,14 @@ export const createTimeline = (
   trigger?: gsap.DOMTarget,
   start?: string | number,
   end?: string | number,
-): TypeTimeLine => gsap.timeline({ scrollTrigger: { trigger, start, end } })
+): TypeTimeLine =>
+  gsap.timeline({
+    scrollTrigger: {
+      trigger,
+      start,
+      end,
+    },
+  })
 
 export const MEDIA = {
   reduced: "(prefers-reduced-motion: reduce)",

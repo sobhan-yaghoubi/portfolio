@@ -3,7 +3,6 @@ import React from "react"
 import QuickAccessArticleSide from "@/components/modules/QuickAccessArticleSide/QuickAccessArticleSide"
 import Article from "@/components/modules/Article"
 import RelatedArticleList from "@/components/modules/RelatedArticleList"
-import CommentArticle from "@/components/modules/CommentArticle"
 
 const page: React.FC = () => {
   return (
@@ -24,9 +23,6 @@ const page: React.FC = () => {
       </div>
       <section className="bg-base-200 p-6 mt-6 col-span-4 rounded-xl">
         <RelatedArticleList />
-      </section>
-      <section className="bg-base-200 p-6 mt-6 col-span-4 rounded-xl">
-        <CommentArticle />
       </section>
       <div className="mb-40" />
     </>

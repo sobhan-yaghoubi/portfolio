@@ -11,7 +11,7 @@ export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
 export const isUserUseMobile = (userAgent: string) =>
   /iphone|ipad|ipod|android|blackberry|windows phone|(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(
-    userAgent.toLowerCase()
+    userAgent.toLowerCase(),
   )
     ? true
     : false
@@ -25,3 +25,14 @@ const FA_DIGITS = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"]
 
 export const toFaDigits = (value: string | number) =>
   String(value).replace(/\d/g, (digit) => FA_DIGITS[Number(digit)])
+
+export const formatFaDate = (isoDate: string) => {
+  const date = new Date(isoDate)
+  if (Number.isNaN(date.getTime())) return isoDate
+
+  return new Intl.DateTimeFormat("fa-IR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(date)
+}

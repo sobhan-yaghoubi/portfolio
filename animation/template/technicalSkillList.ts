@@ -2,7 +2,7 @@ import { createTimeline, withMotion } from "../animationUtils"
 
 export const technicalSkillListAnimate = () =>
   withMotion(() => {
-    const timeLine = createTimeline("#skill-list", "-80%")
+    const timeLine = createTimeline("#skill-list", "top 80%")
     timeLine.fromTo(
       "#skill-list .skill-list-title-child",
       {

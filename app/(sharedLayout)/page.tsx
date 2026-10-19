@@ -1,7 +1,7 @@
 import Landing from "@/components/templates/home/landing/Landing"
 import ProjectList from "@/components/templates/ProjectList"
 import TechnicalGrowth from "@/components/templates/TechnicalGrowthList"
-import ArticleList from "@/components/templates/ArticleList"
+import LinkedinFeed from "@/components/templates/LinkedinFeed"
 import AnimateElement from "@/components/modules/Animate/TemplateAnimate"
 
 export default function Home() {
@@ -22,8 +22,8 @@ export default function Home() {
       </AnimateElement>
       <div className="mb-40" />
 
-      <AnimateElement selectedAnimationName="animateArticleList">
-        <ArticleList />
+      <AnimateElement selectedAnimationName="animateLinkedinFeed">
+        <LinkedinFeed />
       </AnimateElement>
       <div className="mb-36" />
     </>
