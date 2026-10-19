@@ -4,6 +4,14 @@ import TechnicalGrowth from "@/components/templates/TechnicalGrowthList"
 import LinkedinFeed from "@/components/templates/LinkedinFeed"
 import AnimateElement from "@/components/modules/Animate/TemplateAnimate"
 
+import type { Metadata } from "next"
+import { absoluteUrl } from "@/lib/seo"
+
+export const metadata: Metadata = {
+  alternates: { canonical: absoluteUrl("/") },
+}
+
+
 export default function Home() {
   return (
     <>
