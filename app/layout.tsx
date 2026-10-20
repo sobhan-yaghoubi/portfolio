@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Sobhan Yaghoubi Portfolio",
     images: [
       {
-        url: "https://bhnldizjuhewbimjejof.supabase.co/storage/v1/object/public/portfolio/04480685-9f4f-4d3e-83df-8eb0fa8c267f",
+        url: "https://sobhan-yaghoubi.ir/og-image.png",
         width: 1200,
         height: 630,
         alt: "Sobhan Yaghoubi Frontend Developer Portfolio",
