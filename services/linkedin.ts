@@ -52,9 +52,10 @@ export const resolveLinkedinMedia = (path?: string) => {
 
 export const getLinkedinFeed = async (
   limit: number = LINKEDIN_FEED_LIMIT,
+  init: Pick<RequestInit, "signal" | "cache"> = {},
 ): Promise<TypeLinkedinFeed> => {
   try {
-    const response = await fetch(LINKEDIN_FEED_URL)
+    const response = await fetch(LINKEDIN_FEED_URL, init)
 
     if (!response.ok) {
       warn(`دریافت فید ناموفق بود (${response.status})`)
@@ -68,6 +69,7 @@ export const getLinkedinFeed = async (
       items: [...feed.items].sort(byNewest).slice(0, limit),
     }
   } catch (error) {
+    if (init.signal?.aborted) return EMPTY_FEED
     warn("خطا در دریافت فید", error)
     return EMPTY_FEED
   }

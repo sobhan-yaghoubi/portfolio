@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next"
 import "./globals.css"
 
 import ScrollSmooth from "../components/templates/ScrollSmooth"
+import QueryProvider from "@/components/templates/QueryProvider"
 import { Toaster } from "@/components/ui/toaster"
 
 export const viewport: Viewport = {
@@ -45,10 +46,12 @@ export default async function RootLayout({
   return (
     <html dir="rtl" lang="fa" className="dark" data-theme="dark">
       <body className="overflow-x-hidden bg-background text-foreground">
-        <ScrollSmooth>
-          {children}
-          <Toaster />
-        </ScrollSmooth>
+        <QueryProvider>
+          <ScrollSmooth>
+            {children}
+            <Toaster />
+          </ScrollSmooth>
+        </QueryProvider>
       </body>
     </html>
   )
