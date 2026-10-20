@@ -7,6 +7,7 @@ import { lifeGlimpseAndSoftSkillsAnimate } from "@/animation/template/lifeGlimps
 import { technicalSkillListAnimate } from "@/animation/template/technicalSkillList"
 import { cvAnimate } from "@/animation/template/cv"
 import { projectDetailAnimate } from "@/animation/template/projectDetail"
+import { errorPageAnimate } from "@/animation/template/errorPage"
 
 export const templateAnimations = {
   animateHomeLanding: homeLandingAnimate,
@@ -18,4 +19,5 @@ export const templateAnimations = {
   animateTechnicalSkillList: technicalSkillListAnimate,
   animateCv: cvAnimate,
   animateProjectDetail: projectDetailAnimate,
+  animateErrorPage: errorPageAnimate,
 }
