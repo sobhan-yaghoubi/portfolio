@@ -34,7 +34,9 @@ const ProjectCard: React.FC<TypeProjectCardProps> = ({
       <div className="card-body p-4 flex-1 flex flex-col justify-between gap-3">
         <div className="flex flex-col gap-1.5">
           {category && (
-            <span className="badge badge-primary badge-outline text-[11px] w-fit">{category}</span>
+            <span className="badge badge-primary badge-outline text-[11px] w-fit">
+              {category}
+            </span>
           )}
           <ProjectCardTitle title={title} />
         </div>
@@ -46,7 +48,7 @@ const ProjectCard: React.FC<TypeProjectCardProps> = ({
           <div className="flex items-center pt-2 border-t border-white/5">
             <Link
               href={`/project/${slug || id}`}
-              className="text-xs text-primary hover:underline font-bold inline-flex items-center gap-1 min-h-11"
+              className="text-xs text-primary hover:underline font-bold inline-flex items-center gap-1 h-8"
             >
               <span>بررسی داکیومنت و معماری</span>
               <span aria-hidden="true">←</span>
